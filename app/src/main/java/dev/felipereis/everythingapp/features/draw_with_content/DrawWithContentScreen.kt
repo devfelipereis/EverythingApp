@@ -1,47 +1,58 @@
 package dev.felipereis.everythingapp.features.draw_with_content
 
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.drawscope.Fill
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.dp
+
+// https://developer.android.com/develop/ui/compose/graphics/draw/modifiers#drawwithcontent
 
 @Composable
 fun DrawWithContentScreen() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Box(
-            modifier = Modifier
-                .size(200.dp)
-                .drawWithContent {
-                    // Draw a blue circle before the content
-                    drawCircle(
-                        color = Color.Blue,
-                        radius = 100f,
-                        center = Offset(20f, 10f)
-                    )
-                    // Draw the original content
-                    drawContent()
-                    // Draw a red border after the content
-                    drawRect(
-                        topLeft = Offset(30f, 40f),
-                        color = Color.Red,
-                        size = Size(height = 60f, width = size.width),
-                        style = Fill,
-                    )
-                }
-        ) {
-            Text("Draw with content")
-        }
+    var pointerOffset by remember {
+        mutableStateOf(Offset(0f, 0f))
     }
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier
+            .fillMaxSize()
+            .pointerInput("dragging") {
+                detectDragGestures { change, dragAmount ->
+                    pointerOffset += dragAmount
+                }
+            }
+            .onSizeChanged {
+                pointerOffset = Offset(it.width / 2f, it.height / 2f)
+            }
+            .drawWithContent {
+                drawContent()
+                // draws a fully black area with a small keyhole at pointerOffset that’ll show part of the UI.
+                drawRect(
+                    Brush.radialGradient(
+                        listOf(Color.Transparent, Color.Black),
+                        center = pointerOffset,
+                        radius = 100.dp.toPx(),
+                    )
+                )
+            }
+    ) {
+        Text("Hello!")
+    }
+
 }
