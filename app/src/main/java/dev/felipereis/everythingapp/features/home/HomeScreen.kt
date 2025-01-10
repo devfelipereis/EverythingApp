@@ -1,4 +1,4 @@
-package dev.felipereis.everythingapp.features.home.presentation
+package dev.felipereis.everythingapp.features.home
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.clickable

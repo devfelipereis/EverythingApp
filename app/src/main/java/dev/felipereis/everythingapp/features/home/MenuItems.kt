@@ -1,4 +1,4 @@
-package dev.felipereis.everythingapp.features.home.presentation
+package dev.felipereis.everythingapp.features.home
 
 import dev.felipereis.everythingapp.navigation.Screen
 

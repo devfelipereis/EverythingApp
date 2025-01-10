@@ -5,7 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import dev.felipereis.everythingapp.features.draw_with_content.DrawWithContentScreen
-import dev.felipereis.everythingapp.features.home.presentation.HomeScreen
+import dev.felipereis.everythingapp.features.home.HomeScreen
 
 @Composable
 fun SetupNavGraph(
