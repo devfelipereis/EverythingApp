@@ -10,7 +10,6 @@ import kotlin.test.assertIs
 class LoginUseCaseTest {
     private val loginUseCase = LoginUseCase()
 
-
     @Test
     fun `should return Ok when login is successful`(): Unit = runTest {
         val email = "test@example.com"
