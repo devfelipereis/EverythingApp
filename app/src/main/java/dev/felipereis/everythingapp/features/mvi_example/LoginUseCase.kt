@@ -9,10 +9,10 @@ import kotlin.random.Random
 class LoginUseCase {
     suspend operator fun invoke(
         email: String,
-        password: String
+        password: String,
     ): Result<Unit, AuthenticationError> {
         delay(2000)
-        
+
         if (email == "test@example.com" && password == "123456") {
             return Ok(Unit)
         }
