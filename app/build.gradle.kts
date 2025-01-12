@@ -63,4 +63,7 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.navigation.compose)
     //--
+    // Added for the MVI example
+    implementation(libs.michael.bull.kotlin.result)
+    //--
 }

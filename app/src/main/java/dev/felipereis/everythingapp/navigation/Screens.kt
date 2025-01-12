@@ -8,4 +8,7 @@ sealed class Screen {
 
     @Serializable
     data object DrawWithContent : Screen()
+
+    @Serializable
+    data object Login : Screen()
 }
