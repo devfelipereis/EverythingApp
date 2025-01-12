@@ -1,7 +1,6 @@
 package dev.felipereis.everythingapp.features.mvi_example
 
 import dev.felipereis.everythingapp.MainDispatcherRule
-import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
@@ -16,12 +15,10 @@ class LoginViewModelTest {
     val mainDispatcherRule = MainDispatcherRule()
 
     private lateinit var viewModel: LoginViewModel
-    private lateinit var loginUseCase: LoginUseCase
 
     @Before
     fun setUp() {
-        loginUseCase = mockk()
-        viewModel = LoginViewModel(loginUseCase)
+        viewModel = LoginViewModel(LoginUseCase())
     }
 
     @Test
