@@ -1,4 +1,4 @@
-package dev.felipereis.everythingapp.features.mvi_example
+package dev.felipereis.everythingapp.core.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

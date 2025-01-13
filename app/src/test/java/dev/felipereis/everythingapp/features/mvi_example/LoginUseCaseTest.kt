@@ -29,4 +29,6 @@ class LoginUseCaseTest {
 
         assertIs<AuthenticationError>(result.error)
     }
+
+
 }

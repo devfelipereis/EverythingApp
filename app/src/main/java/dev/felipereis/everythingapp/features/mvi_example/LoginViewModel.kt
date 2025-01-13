@@ -2,6 +2,7 @@ package dev.felipereis.everythingapp.features.mvi_example
 
 import androidx.lifecycle.viewModelScope
 import com.github.michaelbull.result.fold
+import dev.felipereis.everythingapp.core.presentation.viewmodel.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
