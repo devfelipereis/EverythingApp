@@ -69,4 +69,10 @@ dependencies {
     // Added for the MVI example
     implementation(libs.michael.bull.kotlin.result)
     //--
+    // Added for the HTTP Request Example
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.cio)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.ktor.serialization.kotlinx.json)
+    //--
 }

@@ -13,4 +13,9 @@ val menuItems = listOf(
         description = "An example of how to use the MVI pattern",
         destination = Screen.Login,
     ),
+    MenuItem(
+        title = "HTTP request example",
+        description = "An example of how to make HTTP requests",
+        destination = Screen.HttpExample,
+    ),
 ).sortedBy { it.title }
