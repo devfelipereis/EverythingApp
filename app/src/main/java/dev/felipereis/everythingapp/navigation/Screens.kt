@@ -14,4 +14,7 @@ sealed class Screen {
 
     @Serializable
     data object HttpExample : Screen()
+
+    @Serializable
+    data object LocalContext : Screen()
 }

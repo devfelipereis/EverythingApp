@@ -18,4 +18,9 @@ val menuItems = listOf(
         description = "An example of how to make HTTP requests",
         destination = Screen.HttpExample,
     ),
+    MenuItem(
+        title = "LocalContext",
+        description = "An example of how to use LocalContext.current",
+        destination = Screen.LocalContext,
+    ),
 ).sortedBy { it.title }
